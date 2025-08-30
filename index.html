@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tonto el que lo lea</title>
+  <link rel="icon" type="image/png" href="audiovisuales/icon.png">
+  <meta name="description" content="Un pequeño reto de cumpleaños... un año después">
+  <style>
+  body {
+    background: linear-gradient(to bottom right, #3b58ff, #ff4040); /* colores festivos */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* un toque divertido */
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #f96c00;
+    text-shadow: 2px 2px #fff;
+  }
+
+  section {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  input, select {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+  }
+
+  button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #f50057;
+  }
+  section img {
+  display: block;        /* hace que se comporte como bloque */
+  margin: 10px auto;     /* auto en los lados = centrado horizontal */
+  max-width: 600px;      /* tamaño máximo */
+  width: 100%;           /* se adapta al contenedor */
+  height: auto;          /* mantiene la proporción */
+}
+#botonMusica {
+  display: block;
+  margin: 20px auto;
+  background-color: #ffeb3b;
+  color: #d500f9;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: 2px solid #d500f9;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#botonMusica:hover {
+  background-color: #ffd600;
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+  <!-- Título grande -->
+  <h1>Hey Esteban, hola</h1>
+  <button id="botonMusica">🎵 ¡Botón Musical!</button>
+    <audio id="audioCumple" src="audiovisuales/cumplemelodia.mp3"></audio>
+
+  <p>Vale, tras una larga espera hay que darle un buen uso a esta web. Lo que te tengo preparado son básicamente acertijos porque... Eso es lo que aparentemente os mola también. </p>
+  <hr>
+  <p>
+    Aunque esto es más bien un examen: espero que hayas prestado mucha atención en este largo periodo de espera. Las preguntas estarán ordenadas en orden de dificultad
+    y definitivamente no según se me van ocurriendo (guiño guiño) porque todo esto lleva una gran planificación a lo largo del tiempo, en 12 pasos ya sabes.
+  </p>
+  <hr>
+
+  <!-- Sección EXTRA oculta (aparece cuando se aciertan los 10 primeros) -->
+  <section id="extra" style="display:none; margin-top:20px; padding:10px; border:2px solid #000;">
+    <h2>🔒 Nivel Secreto Faciln't: Mi pueblo</h2>
+    <p>Ya sabes que en mi pueblo sucedían las cosas más sorprendentes... vamos a ver si te acuerdas</p>
+
+    <section id="extra1">
+      <h3>Pregunta faciln't 1</h3>
+      <p>¿En qué son expertas las burras sin dientes?</p>
+      <input type="text" id="respuesta11" placeholder="Necesitas ayuda?">
+      <button id="btn11">Comprobar</button>
+      <p id="feedback11" aria-live="polite"></p>
+    </section>
+
+    <section id="extra2">
+      <h3>Pregunta faciln't 2</h3>
+      <p>¿Quién es el campeón de billar?</p>
+      <input type="text" id="respuesta12" placeholder="Tal vez convenga">
+      <button id="btn12">Comprobar</button>
+      <p id="feedback12" aria-live="polite"></p>
+    </section>
+
+    <section id="extra3">
+      <h3>Pregunta faciln't 3</h3>
+      <p>¿Qué da el limonar?</p>
+      <input type="text" id="respuesta13" placeholder="DETENERSE a">
+      <button id="btn13">Comprobar</button>
+      <p id="feedback13" aria-live="polite"></p>
+    </section>
+
+    <section id="extra4">
+      <h3>Pregunta faciln't 4</h3>
+      <p>Describe a Juan en dos palabras</p>
+      <input type="text" id="respuesta14" placeholder="Mirar bien">
+      <button id="btn14">Comprobar</button>
+      <p id="feedback14" aria-live="polite"></p>
+    </section>
+
+    <section id="extra5">
+      <h3>Pregunta faciln't 5</h3>
+      <p>¿Qué edad alcanzan los gallos con espejuelos?</p>
+      <input type="text" id="respuesta15" placeholder="Las imágenes">
+      <button id="btn15">Comprobar</button>
+      <p id="feedback15" aria-live="polite"></p>
+    </section>
+
+    <!-- Final del nivel secreto -->
+    <!-- Final del nivel secreto -->
+<section id="final" style="display:none; margin-top:20px; padding:10px; border:2px solid #000;">
+  <h2>🎉 AHORA SÍ, te lo has ganado 🎉</h2>
+  <p>
+    Relaciona las descripciones con cada nombre...  
+    No repitas ninguno y saca una foto al final para probar que lo has resuelto.
+  </p>
+
+  <!-- Descripción 1 -->
+  <div style="margin-bottom:15px;">
+    <h3>🔹 Descripción 1</h3>
+    <p>
+      Para quien aprecia lo clásico, lo que no necesita adornos para demostrar su valía.  
+      Quien ha resistido generaciones y aún conserva su fuerza intacta.
+    </p>
+    <label>
+      👉 Elige a quién representa: 
+      <select>
+        <option value="">-- Selecciona --</option>
+        <option>Esteban</option>
+        <option>Lucía</option>
+        <option>Xuhui</option>
+        <option>Sofía</option>
+        <option>Yoel</option>
+        <option>Laura</option>
+      </select>
+    </label>
+    <label>
+      y también a:
+      <select>
+        <option value="">-- Selecciona --</option>
+        <option>Esteban</option>
+        <option>Lucía</option>
+        <option>Xuhui</option>
+        <option>Sofía</option>
+        <option>Yoel</option>
+        <option>Laura</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- Descripción 2 -->
+  <div style="margin-bottom:15px;">
+    <h3>🔹 Descripción 2</h3>
+    <p>
+      Para el observador detallista, aquel que nunca deja escapar lo pequeño, lo preciso, lo sutil.  
+      Refleja control y mirada aguda.
+    </p>
+    <label>
+      👉 Elige a quién representa: 
+      <select>
+        <option value="">-- Selecciona --</option>
+        <option>Esteban</option>
+        <option>Lucía</option>
+        <option>Xuhui</option>
+        <option>Sofía</option>
+        <option>Yoel</option>
+        <option>Laura</option>
+      </select>
+    </label>
+    <label>
+      y también a:
+      <select>
+        <option value="">-- Selecciona --</option>
+        <option>Esteban</option>
+        <option>Lucía</option>
+        <option>Xuhui</option>
+        <option>Sofía</option>
+        <option>Yoel</option>
+        <option>Laura</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- Descripción 3 -->
+  <div style="margin-bottom:15px;">
+    <h3>🔹 Descripción 3</h3>
+    <p>
+      Para quien no se conforma con la superficie.  
+      El que busca dejar huella, causar impresión, elevar lo cotidiano a un nivel distinto.  
+      Ambición envuelta en elegancia.
+    </p>
+    <label>
+      👉 Elige a quién representa: 
+      <select>
+        <option value="">-- Selecciona --</option>
+        <option>Esteban</option>
+        <option>Lucía</option>
+        <option>Xuhui</option>
+        <option>Sofía</option>
+        <option>Yoel</option>
+        <option>Laura</option>
+      </select>
+    </label>
+    <label>
+      y también a:
+      <select>
+        <option value="">-- Selecciona --</option>
+        <option>Esteban</option>
+        <option>Lucía</option>
+        <option>Xuhui</option>
+        <option>Sofía</option>
+        <option>Yoel</option>
+        <option>Laura</option>
+      </select>
+    </label>
+  </div>
+
+  <input type="text" placeholder="Pon un mensaje para la foto" style="margin-top:10px; width:100%;">
+</section>
+
+  </section>
+
+  <!-- Acertijos normales -->
+  <section id="acertijo1">
+    <h2>Acertijo 1</h2>
+    <p>¿Cuántos pasos tiene todo buen plan?</p>
+    <input type="text" id="respuesta1" placeholder="Había que regalarte una">
+    <button id="btn1">Comprobar</button>
+    <p id="feedback1" aria-live="polite"></p>
+  </section>
+
+  <section id="acertijo2">
+    <h2>Acertijo 2</h2>
+    <p>¿Te sabes "el cuento de la buena pipa"?</p>
+    <input type="text" id="respuesta2" placeholder="Escribe tu respuesta">
+    <button id="btn2">Comprobar</button>
+    <p id="feedback2" aria-live="polite"></p>
+  </section>
+
+  <section id="acertijo3">
+    <h2>Acertijo 3</h2>
+    <p>Identifica qué es esto:</p>
+    <img 
+      loading="lazy"
+      id="fotico3"
+      title="Hey, a lo mejor sirve de algo mirar esto eh?" 
+      style="width: 100%;"
+      alt="Imagen del acertijo 3" 
+      src="audiovisuales/bisonte_a_la_parmesana.jpeg">
+    <input type="text" id="respuesta3" placeholder="Escribe tu respuesta">
+    <button id="btn3">Comprobar</button>
+    <p id="feedback3" aria-live="polite"></p>
+  </section>
+
+  <section id="acertijo4">
+    <h2>Acertijo 4</h2>
+    <p>¿De qué se alimenta?:</p>
+    <img 
+      loading="lazy"
+      id="fotico4"
+      title="Willy" 
+      style="width: 100%;"
+      alt="Imagen del acertijo 4" 
+      src="audiovisuales/pollo_frito_cocaína (2).png">
+    <input type="text" id="respuesta4" placeholder="No le mires a los ojos">
+    <button id="btn4">Comprobar</button>
+    <p id="feedback4" aria-live="polite"></p>
+  </section>
+
+  <section id="acertijo5">
+    <h2>Acertijo 5</h2>
+    <p>Esta es difícil... Elige el número que se relaciona con esta imagen</p>
+    <img 
+      loading="lazy"
+      id="fotico5"
+      title="Chirino" 
+      style="width: 100%;"
+      alt="Imagen del acertijo 5" 
+      src="audiovisuales/Balas_plata.png">
+    <label for="respuesta5">Elige sabiamente:</label>
+    <select id="respuesta5">
+      <option value="">--Selecciona--</option>
+    </select>
+    <button id="btn5">Comprobar</button>
+    <p id="feedback5" aria-live="polite"></p>
+  </section>
+
+  <section id="acertijo6">
+    <h2>Acertijo 6</h2>
+    <p>¿Qué animal de sangre fría masca de un lado particular?</p>
+    <input type="text" id="respuesta6" placeholder="Escribe tu respuesta">
+    <button id="btn6">Comprobar</button>
+    <p id="feedback6" aria-live="polite"></p>
+    <!-- Imagen que aparece solo al acertar -->
+    <img 
+      loading="lazy"
+      id="imagen6"
+      title="Ya" 
+      style="width: 100%; display:none;"
+      alt="Imagen desbloqueada del acertijo 6" 
+      src="audiovisuales/Iguana.png">
+  </section>
+
+  <section id="acertijo7">
+    <h2>Acertijo 7</h2>
+    <p>?</p>
+     <img 
+      loading="lazy"
+      id="imagen7"
+      title="Lo dijo" 
+      style="width: 100%"
+      alt="?"
+      src="audiovisuales/Vida_Mohs.png">
+    <input type="text" id="respuesta7" placeholder="Escribe tu respuesta">
+    <button id="btn7">Comprobar</button>
+    <p id="feedback7" aria-live="polite"></p>
+  </section>
+
+  <section id="acertijo8">
+    <h2>Acertijo 8</h2>
+    <p>Un poco de clase invertida...¿Qué pregunta harías tú aquí?</p>
+    <img
+        loaging="lazy"
+        id="imagen8"
+        title="Campoamor"
+        style="width: 100%"
+        alt="Se perdió por completo"
+        src="audiovisuales/mitad_medio_ambiente.png">
+
+    <input type="text" id="respuesta8" placeholder="Escribe tu pregunta jeje">
+    <button id="btn8">Comprobar</button>
+    <p id="feedback8" aria-live="polite"></p>
+  </section>
+
+  <section id="acertijo9">
+    <h2>Acertijo 9</h2>
+    <p>Dime la máquina simple favorita de todos</p>
+    <input type="text" id="respuesta9" placeholder="Escribe tu respuesta">
+    <button id="btn9">Comprobar</button>
+    <p id="feedback9" aria-live="polite"></p>
+     <!-- Imagen que aparece solo al acertar -->
+    <img 
+      loading="lazy"
+      id="imagen9"
+      title="Tal vez conviene buscar en internet o preguntar a Chatty eh?" 
+      style="width: 100%; display:none;"
+      alt="Imagen desbloqueada del acertijo 9" 
+      src="audiovisuales/palanca.jpg">
+  </section>
+
+  <section id="acertijo10">
+    <h2>Acertijo 10</h2>
+    <p>Describe la dificultad de este test en una sola palabra</p>
+    <input type="text" id="respuesta10" placeholder="Escribe tu respuesta">
+    <button id="btn10">Comprobar</button>
+    <p id="feedback10" aria-live="polite"></p>
+  </section>
+
+    
+   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<script>
+document.getElementById("botonMusica").addEventListener("click", function() {
+    const audio = document.getElementById("audioCumple");
+    audio.play();
+
+    // Confeti desde ambos lados
+    confetti({
+        particleCount: 1000,
+        spread: 150,
+        origin: { x: 0, y: 0.6 } // izquierda
+    });
+    confetti({
+        particleCount: 1000,
+        spread: 150,
+        origin: { x: 1, y: 0.6 } // derecha
+    });
+});
+
+    function limpiar(texto) {
+      return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    }
+
+    // Respuestas de las 15 preguntas
+    const respuestas = {
+      1: "12",
+      2: "el cuento de la buena pipa",        
+      3: "bisonte a la parmesana",
+      4: "pollo frito y cocaina",
+      5: "47",
+      6: "iguana",
+      7: "11",
+      8: "¿donde esta la otra mitad del medio ambiente?",
+      9: "palanca",
+      10: "superfacil",
+      11: "ortografia",
+      12: "un oso",
+      13: "melones",
+      14: "viejo anacoreta",
+      15: "90"
+    };
+
+    // Mensajes ✅❌
+    const mensajes = {
+      1: {ok: "✅ Pues se nota que es tu cumpleaños eh? Tremendo regalo", fail: "❌ Ehm... venga hombre, ¿ves bien?"},
+      2: {ok: "✅ Vaya, parece que sí lo conoces", fail: (respOriginal) => `❌ Yo no te he dicho "${respOriginal}", te he dicho si te sabes el cuento de la buena pipa`},
+      3: {ok: "✅ Como que se te antoja, ¿no?", fail:"❌ Venga, es el desayuno de los campeones"},
+      4: {ok: "✅ Nada mal", fail: "❌ El orden de los factores sí importa"},
+      5: {ok: "✅ Mis balas: Pura plata", fail: "❌ Quizás visualizar todas las opciones posibles te dé una pista de qué va esto"},
+      6: {ok: "✅ ;)", fail: "❌ Va a ser que no"},
+      7: {ok: "✅ Durísimo (nunca mejor dicho)", fail: "❌ Esto es algo que aprendemos en la carrera"},
+      8: {ok: "✅ ¿Y por dónde le entra el agua al coco?", fail: "❌ Tienes que ponerte más filosófico que eso"},
+      9: {ok: "✅ Me pareció de mal gusto preguntar por el grado...", fail: "❌ Las hay mejores que eso"},
+      10: {ok: "✅ JAJAJAJA... Si las has acertado todas, vuelve arriba del todo", fail: "❌ Sabes que no"},
+      11: {ok: "✅ Vas por buen camino", fail: "❌ Ni de lejos"},
+      12: {ok: "✅ ¿Te lo imaginas?", fail: "❌ El artículo indefinido debe ayudar"},
+      13: {ok: "✅ Qué buen árbol con este calor", fail: "❌ Tal vez todavía no lo tienes claro"},
+      14: {ok: "✅ Ahora... ¿Qué significa anacoreta?", fail: "❌ ¿Quién leches es Juan?"},
+      15: {ok: "✅ No esperaba menos jaja ahora sí, reclama tu premio (si contestaste todo ya)", fail: "❌ Si me dieran una moneda por cada gallo en este test... tendría 2 monedas; que no es mucho, pero es raro que pasara 2 veces"}
+    };
+
+    // Estado de 15 preguntas
+    const estado = {};
+    for (let i=1; i<=15; i++) estado[i] = false;
+
+  function comprobar(num) {
+  let resp, respOriginal;
+  if(num === 5) {
+    respOriginal = document.getElementById("respuesta5").value;
+    resp = respOriginal;
+  } else {
+    respOriginal = document.getElementById("respuesta"+num).value;
+    resp = limpiar(respOriginal);
+  }
+
+  let msg;
+  if(resp === respuestas[num]) {
+    msg = mensajes[num].ok;
+    estado[num] = true;
+
+    if(num === 6) document.getElementById("imagen6").style.display = "block";
+    if(num === 9) document.getElementById("imagen9").style.display = "block"; // 👈 añadimos esto
+
+  } else {
+    msg = typeof mensajes[num].fail === "function" ? mensajes[num].fail(respOriginal) : mensajes[num].fail;
+    estado[num] = false;
+
+    if(num === 6) document.getElementById("imagen6").style.display = "none";
+    if(num === 9) document.getElementById("imagen9").style.display = "none"; // 👈 y esto también
+
+  }
+  document.getElementById("feedback"+num).textContent = msg;
+  mostrarFinal();
+}
+
+
+    function mostrarFinal() {
+      const primeras10 = Object.keys(estado).slice(0,10).every(k => estado[k]);
+      if (primeras10) {
+        document.getElementById("extra").style.display = "block";
+      }
+      const todas15 = Object.values(estado).every(v => v);
+      document.getElementById("final").style.display = todas15 ? "block" : "none";
+    }
+
+    // Listeners para todas las preguntas
+    for(let i=1; i<=15; i++) {
+      if(document.getElementById("btn"+i)){
+        document.getElementById("btn"+i).addEventListener("click", ()=>comprobar(i));
+        if(i !== 5) {
+          const input = document.getElementById("respuesta"+i);
+          if(input) {
+            input.addEventListener("keydown", function(e){ 
+              if(e.key==="Enter") comprobar(i); 
+            });
+          }
+        }
+      }
+    }
+
+    // Generar dinámicamente opciones 1–118 para el select del 5
+    const select5 = document.getElementById("respuesta5");
+    for (let i = 1; i <= 118; i++) {
+      let option = document.createElement("option");
+      option.value = i;
+      option.textContent = i;
+      select5.appendChild(option);
+    }
+  </script>
+</body>
+</html>
